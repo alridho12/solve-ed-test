@@ -6,41 +6,67 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
+# Quiz Application Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This project is a quiz application developed using Next.js and TypeScript, with the MUI framework for styling. The application allows users to answer multiple-choice questions and provides feedback based on their selected answers.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Data Structure
 
-### `npm test`
+The JSON data used in the application has the following structure:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `question_data.passage`: The text data for the passage.
+- `question_data.question`: The text data for the question.
+- `question_data.options`: The list of options for the multiple-choice question.
+- `question_data.answer`: The correct answer (one of the options).
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Navbar**:
+   - **Close Button**: Allows users to return to the home page (welcome).
+   - **Progress Bar**: Shows how much the user has progressed in the session (out of 5 questions). It updates as users answer questions.
+   - **Info Button**: Displays a modal popup with random text.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Zoom Control**:
+   - Allows users to adjust the font size of the reading passage.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Passage Section/Card**:
+   - Displays the reading passage text.
 
-### `npm run eject`
+4. **Tabs**:
+   - Allows users to switch between the passage and the question.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+5. **Question Section/Card**:
+   - Displays the question that users need to answer.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+6. **Multiple Choice Options**:
+   - Clickable cards to show the options for the multiple-choice question.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Interactions
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. **Correct Answer**:
+   - The selected answer card will turn green.
+   - Displays a feedback card with an animated Lottie file of Ed and the text "Amazing!".
+   - Includes a "Continue" button to proceed to the next question.
 
-## Learn More
+2. **Incorrect Answer**:
+   - The selected answer card will turn red.
+   - Displays a feedback card with an animated Lottie file of Ed and the text "Try again!".
+   - Includes a "Continue" button to proceed to the next question.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. **Completion**:
+   - When there are no more questions, a "Thank you" page will be shown.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Getting Started
+
+1. **Installation**:
+
+   Clone the repository and install the dependencies:
+
+   ```bash
+   git clone <repository-url>
+   cd <project-directory>
+   npm install
+
+## Demo
+https://solve-ed-test.vercel.app/
+
