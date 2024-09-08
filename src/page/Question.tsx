@@ -12,6 +12,7 @@ import edincorrect from '../database/ed_incorrect.json';
 import Lottie from 'lottie-react';
 import { useNavigate } from 'react-router-dom';
 
+
 const theme = createTheme({
   palette: {
     secondary: {
@@ -73,11 +74,16 @@ const Question = () => {
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [answerStatus, setAnswerStatus] = useState<{ [key: string]: boolean }>({});
+  const [fontSize, setFontSize] = useState(16);
 
   const navigate = useNavigate();
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
+  };
+
+  const handleFontSizeChange = (event: Event, newValue: number | number[]) => {
+    setFontSize(newValue as number);
   };
 
   const showDialog = (message: string) => {
@@ -123,12 +129,13 @@ const Question = () => {
                 <FontDownloadOutlinedIcon sx={{ fontSize: '20px' }} />
                 <Slider
                   aria-label="Font Size"
-                  defaultValue={0}
+                  defaultValue={16}
                   getAriaValueText={valuetext}
-                  step={1}
+                  step={8}
                   marks
-                  min={0}
-                  max={2}
+                  min={16}
+                  max={32}
+                  onChange={handleFontSizeChange}
                 />
                 <FontDownloadOutlinedIcon />
               </div>
@@ -148,6 +155,7 @@ const Question = () => {
                   borderRadius: '10px',
                   borderTop: '3px solid #03a9f4',
                   minHeight: '100px',
+                  fontSize: `${fontSize}px`
                 }}
               >
                 {questions[currentQuestionIndex]?.question_data?.definition || 'Lorem ipsum dolor sit amet consectetur adipisicing elit...'}
